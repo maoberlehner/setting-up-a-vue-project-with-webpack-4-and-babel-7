@@ -1,0 +1,37 @@
+@mixin layout($gutter-vertical: 1rem, $gutter-horizontal: 1rem) {
+  display: flex;
+  flex-wrap: wrap;
+
+  @if $gutter-vertical > 0 {
+    margin-top: -$gutter-vertical;
+
+    > * {
+      padding-top: $gutter-vertical;
+    }
+  }
+
+  @if $gutter-horizontal > 0 {
+    margin-left: -$gutter-horizontal;
+
+    > * {
+      padding-left: $gutter-horizontal;
+    }
+  }
+}
+
+@mixin layout__item($size: auto, $min-width: 0) {
+  box-sizing: border-box;
+
+  @if $size == auto {
+    flex-grow: 1;
+  } @else if $size == max {
+    flex-grow: 9999;
+  } @else {
+    width: $size * 100%;
+    flex-grow: 1;
+  }
+
+  @if $min-width > 0 {
+    flex-basis: $min-width;
+  }
+}

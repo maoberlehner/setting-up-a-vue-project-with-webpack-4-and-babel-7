@@ -1,0 +1,10 @@
+{
+  "extends": "@avalanche/stylelint-config",
+  "processors": [
+    "@mapbox/stylelint-processor-arbitrary-tags"
+  ],
+  "rules": {
+    "max-nesting-depth": 4,
+    "no-empty-source": null
+  }
+}
